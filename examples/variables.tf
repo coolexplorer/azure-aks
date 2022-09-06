@@ -4,22 +4,15 @@ variable "location" {
   default     = "Canada Central"
 }
 
-variable "name_prefix" {
-  type        = string
-  description = "The virtual machine name's prefix"
-  default     = "test-vm"
+# AKS
+variable "kubernetes_version" {
+  type    = string
+  default = "1.22.6"
 }
 
-variable "owner" {
+variable "aks_rg_name" {
   type        = string
-  description = "The owner name"
-  default     = "Allen"
-}
-
-# Kubernetes
-variable "aks_rg" {
-  type        = any
-  description = "The resource group object for the Kubernets resources"
+  description = "The aks resource group name"
 }
 
 variable "worker_node_vm_size" {
@@ -36,7 +29,7 @@ variable "worker_node_count" {
 
 variable "worker_node_pool_name" {
   type        = string
-  default     = "work-node-pool1"
+  default     = "work-node-pool"
   description = "The work node pool name"
 }
 
@@ -45,20 +38,16 @@ variable "identity" {
   default = "SystemAssigned"
 }
 
-variable "aks_dns_prefix" {
-  type    = string
-  default = "testaks1"
-}
-
-variable "kubernetes_version" {
-  type    = string
-  default = "1.22.6"
-}
-
 # Network
-variable "aks_subnet" {
-  type        = any
-  description = "The subnet object for AKS"
+variable "aks_vnet_name" {
+  type        = string
+  description = "The aks virtual network name"
+}
+
+variable "aks_subnet_name" {
+  type        = string
+  description = "The aks subnet name"
+  default     = "subnet1"
 }
 
 variable "aks_network_plugin" {
