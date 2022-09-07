@@ -2,15 +2,19 @@ data "azurerm_resource_group" "test_aks_rg" {
   name = var.aks_rg_name
 }
 
+data "azurerm_resource_group" "test_aks_net_rg" {
+  name = var.aks_net_rg_name
+}
+
 data "azurerm_virtual_network" "aks_vnet" {
   name                = var.aks_vnet_name
-  resource_group_name = data.azurerm_resource_group.test_aks_rg.name
+  resource_group_name = data.azurerm_resource_group.test_aks_net_rg.name
 }
 
 data "azurerm_subnet" "aks_subnet" {
   name                 = var.aks_subnet_name
   virtual_network_name = data.azurerm_virtual_network.aks_vnet.name
-  resource_group_name  = data.azurerm_resource_group.test_aks_rg.name
+  resource_group_name  = data.azurerm_resource_group.test_aks_net_rg.name
 }
 
 module "test_aks" {

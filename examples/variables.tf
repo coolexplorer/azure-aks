@@ -40,7 +40,7 @@ variable "worker_node_count" {
 
 variable "worker_node_pool_name" {
   type        = string
-  default     = "work-node-pool"
+  default     = "nodepool1"
   description = "The work node pool name"
 }
 
@@ -65,4 +65,25 @@ variable "aks_network_plugin" {
   type        = string
   description = "The network plugin for AKS"
   default     = "kubenet"
+}
+
+# Credential
+variable "azure_client_id" {
+  sensitive = true
+}
+
+variable "azure_tenant_id" {
+  sensitive = true
+}
+
+variable "azure_subscription_id" {
+  sensitive = true
+}
+
+variable "azure_client_secret" {
+  sensitive = true
+}
+
+variable "azure_client_secret_id" {
+  sensitive = true
 }
