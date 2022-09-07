@@ -4,6 +4,12 @@ variable "location" {
   default     = "Canada Central"
 }
 
+variable "name_prefix" {
+  type        = string
+  description = "The AKS name's prefix"
+  default     = "test-aks"
+}
+
 # AKS
 variable "kubernetes_version" {
   type    = string
@@ -12,7 +18,12 @@ variable "kubernetes_version" {
 
 variable "aks_rg_name" {
   type        = string
-  description = "The aks resource group name"
+  description = "The AKS resource group name"
+}
+
+variable "aks_net_rg_name" {
+  type        = string
+  description = "The AKS network resource group name"
 }
 
 variable "worker_node_vm_size" {
@@ -29,7 +40,7 @@ variable "worker_node_count" {
 
 variable "worker_node_pool_name" {
   type        = string
-  default     = "work-node-pool"
+  default     = "nodepool1"
   description = "The work node pool name"
 }
 
@@ -54,4 +65,25 @@ variable "aks_network_plugin" {
   type        = string
   description = "The network plugin for AKS"
   default     = "kubenet"
+}
+
+# Credential
+variable "azure_client_id" {
+  sensitive = true
+}
+
+variable "azure_tenant_id" {
+  sensitive = true
+}
+
+variable "azure_subscription_id" {
+  sensitive = true
+}
+
+variable "azure_client_secret" {
+  sensitive = true
+}
+
+variable "azure_client_secret_id" {
+  sensitive = true
 }

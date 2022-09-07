@@ -1,4 +1,10 @@
-resource "azurerm_kubernetes_cluster" "aks-rs" {
+resource "random_string" "name_postfix" {
+  length  = 4
+  numeric = true
+  special = false
+}
+
+resource "azurerm_kubernetes_cluster" "aks_rs" {
   name                = "${var.name_prefix}-${random_string.name_postfix.result}"
   location            = var.location
   resource_group_name = var.aks_rg.name
@@ -14,7 +20,7 @@ resource "azurerm_kubernetes_cluster" "aks-rs" {
 
     enable_node_public_ip = false
 
-    vnet_subnet_id = var.ask_subnet.id
+    vnet_subnet_id = var.aks_subnet.id
 
     tags = {
       createdBy   = var.owner

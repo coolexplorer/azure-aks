@@ -6,8 +6,8 @@ variable "location" {
 
 variable "name_prefix" {
   type        = string
-  description = "The virtual machine name's prefix"
-  default     = "test-vm"
+  description = "The AKS name's prefix"
+  default     = "test-aks"
 }
 
 variable "owner" {
