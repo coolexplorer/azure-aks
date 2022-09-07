@@ -4,6 +4,12 @@ variable "location" {
   default     = "Canada Central"
 }
 
+variable "name_prefix" {
+  type        = string
+  description = "The AKS name's prefix"
+  default     = "test-aks"
+}
+
 # AKS
 variable "kubernetes_version" {
   type    = string
@@ -12,7 +18,12 @@ variable "kubernetes_version" {
 
 variable "aks_rg_name" {
   type        = string
-  description = "The aks resource group name"
+  description = "The AKS resource group name"
+}
+
+variable "aks_net_rg_name" {
+  type        = string
+  description = "The AKS network resource group name"
 }
 
 variable "worker_node_vm_size" {

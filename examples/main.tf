@@ -13,13 +13,15 @@ data "azurerm_subnet" "aks_subnet" {
   resource_group_name  = data.azurerm_resource_group.test_aks_rg.name
 }
 
-module "test_rg" {
+module "test_aks" {
   source = "../"
 
   name_prefix = var.name_prefix
   location    = var.location
 
-  aks_rg = data.azurerm_resource_group.test_aks_rg
+  # AKS
+  kubernetes_version = var.kubernetes_version
+  aks_rg             = data.azurerm_resource_group.test_aks_rg
 
   # Worker node pool
   worker_node_pool_name = var.worker_node_pool_name
@@ -30,5 +32,5 @@ module "test_rg" {
   identity = var.identity
 
   # Network
-  aks_subnet = data.azurerm_subnet.ask_subnet
+  aks_subnet = data.azurerm_subnet.aks_subnet
 }
