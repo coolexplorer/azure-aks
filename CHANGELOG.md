@@ -1,3 +1,11 @@
+## [1.1.1](https://github.com/coolexplorer/azure-aks/compare/v1.1.0...v1.1.1) (2022-09-07)
+
+
+### Bug Fixes
+
+* fixed `terraform plan` issues ([e655730](https://github.com/coolexplorer/azure-aks/commit/e655730463dc2aaaab9ddc37d1de16313b790356))
+* fixed the variable reference issues ([bf1dc3d](https://github.com/coolexplorer/azure-aks/commit/bf1dc3d2cdd5d00d09a64eaf973830f1183615c2))
+
 # [1.1.0](https://github.com/coolexplorer/azure-aks/compare/v1.0.0...v1.1.0) (2022-09-07)
 
 
