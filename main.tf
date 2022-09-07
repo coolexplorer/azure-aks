@@ -33,9 +33,9 @@ resource "azurerm_kubernetes_cluster" "aks_rs" {
   }
 
   network_profile {
-    network_plugin    = var.aks_network_plugin
+    network_plugin    = "azure"
+    network_policy    = "calico"
     load_balancer_sku = "standard"
-    outbound_type     = "userDefinedRouting"
   }
 
   tags = {
